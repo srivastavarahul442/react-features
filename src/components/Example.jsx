@@ -1,37 +1,37 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
-export const Example = () => {
-  const [selectedCountry, setSelectedCountry] = useState("");
+const Example = () => {
+  const countOfOTP = 6;
+  const [inputArray, setInputArray] = useState(new Array(countOfOTP).fill());
 
-  const countriesName = ["india", "nepal"];
+  const refArray = useRef();
+  console.log(refArray)
 
-  const countriesStates = {
-    state:{}
-  };
+  const handleOnChange = (e,index) => {
+    if(isNaN(e)) return
+    const newArray = [...inputArray];
+    newArray[index]=e.slice(-1);
+    setInputArray(newArray)
+  }
 
-  const handleCountry = (e) => {
-    setSelectedCountry(e.target.value);
-  };
+
 
   return (
-    <div>
-      <select
-        onChange={handleCountry}
-        className="h-8 w-30 border-2 border-black"
-      >
-        <option>select Country</option>
-        {countriesName.map((country) => (
-          <option key={country}>{country}</option>
+    <div className="w-[20%] mx-auto my-10">
+      <h1 className="ml-15">OTP Varification</h1>
+      <div className="mt-5">
+        {inputArray.map((value, index) => (
+          <input
+          ref={refArray}
+            className="h-10 w-10 border-1 items-center text-center border-black"
+            value={inputArray[index]}
+            key={index}
+            onChange={(e)=>handleOnChange(e.target.value,index)}
+          />
         ))}
-      </select>
-
-      {selectedCountry && countriesStates[selectedCountry] && (
-        <select className="h-8 w-30 border-2 border-black">
-          {countriesStates[selectedCountry].map((state) => (
-            <option key={state}>{state}</option>
-          ))}
-        </select>
-      )}
+      </div>
     </div>
   );
 };
+
+export default Example;

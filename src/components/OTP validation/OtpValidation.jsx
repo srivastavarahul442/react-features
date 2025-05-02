@@ -5,6 +5,8 @@ const OtpValidation = () => {
 
   const refArray = useRef([]);
 
+  console.log(refArray)
+
   const [inputArr, setInputArray] = useState(
     new Array(OTP_DIGITS_COUNT).fill("")
   );

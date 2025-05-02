@@ -1,14 +1,18 @@
 import ChipsInput from "./components/Chips Input/ChipsInput";
-import { Example } from "./components/Example";
-import MultipleDropdown from "./components/MultipleDropdown";
+import ContactForm from "./components/Contact Form/ContactForm";
+import  Example  from "./components/Example";
+import MultipleDropdown from "./components/Multiple Dropdown/MultipleDropdown";
 import OtpValidation from "./components/OTP validation/OtpValidation";
+import Pagination from "./components/Pagination/Pagination";
 
 function App() {
   return (
     <>
       {/* <MultipleDropdown /> */}
       {/* <OtpValidation /> */}
-      <ChipsInput />
+      {/* <ChipsInput /> */}
+      {/* <ContactForm /> */}
+      <Pagination />
       {/* <Example /> */}
     </>
   );
